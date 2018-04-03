@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar color="primary" class="no-scroll">
+    <ion-title>{{ this.navParams.data.museName }}</ion-title>
+    <ion-buttons end>
+            <button *ngIf="!logg.loggedIn" ion-button start solid small color="primary" (click)="logg.goToLogin()">
+              Login
+            </button>
+            <ion-item *ngIf="logg.loggedIn && logg.loggedInUser" color="primary" (click)="logg.logOut()">Hello {{ logg.loggedInUser.username }}!</ion-item>
+        </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-tabs>
+      <ion-tab tabTitle="Exhibits" [root]="tab1" [rootParams]="navParams.data"></ion-tab>
+      <ion-tab tabTitle="Riddles" (ionSelect)="checkLogin()" [root]="tab2" [rootParams]="navParams.data"></ion-tab>
+</ion-tabs>`
+

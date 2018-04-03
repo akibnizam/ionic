@@ -1,0 +1,55 @@
+<!--
+  Generated template for the ModalArtPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-buttons>
+        <button ion-button start outline small navPop color="primary">Close</button>
+    </ion-buttons>
+    <ion-title end style="text-align: center;">{{ navParams.data.museName }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <h1>{{ itemRec[index].English.exhibit_name }}</h1>
+        <p>{{ itemRec[index].English.summary }}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+        <h2>Content</h2>
+
+        <ion-row style="height: 40px"></ion-row>
+
+        <div text-wrap *ngFor="let key of objKeys(itemRec[index].English.content); let i = index">
+            <h2>{{ i + 1 }}</h2>
+            <p>{{ itemRec[index].English.content[key] }}</p>
+            <ion-row style="height: 20px"></ion-row>
+        </div>
+
+        <ion-row>
+            <ion-col>
+              <button ion-button item-left icon-left small (click)="decInd()">
+                <ion-icon name="arrow-back"></ion-icon>
+                <div>Previous</div>
+              </button>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+            <ion-col>
+              <button ion-button item-right icon-right small (click)="incInd()">
+                <div>Next</div>
+                <ion-icon name="arrow-forward"></ion-icon>
+              </button>
+            </ion-col>
+
+          </ion-row>
+    </ion-item>
+
+</ion-content>

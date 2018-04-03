@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar primary>
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <ion-title>Exhibits</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <!-- <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon [name]="item.icon" item-start></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-end>
+        {{item.note}}
+      </div>
+    </button> -->
+    <!-- <ion-item *ngFor="let item of items">
+      <h2> </h2>
+      <h2> Content: {{item.content}}</h2>
+      <!<h3> Content: {{item.content.content}}</h3>
+    </ion-item> -->
+
+
+
+        <ion-card color="dark" *ngFor="let item of items; let i = index" (click)="goToModal(items, i)">
+
+          <ion-item>
+            <h2>Artifact Name: {{item.English.exhibit_name}}</h2>
+          </ion-item>
+
+          <ion-card-content color="lightdark">
+            <p style="color: #82829f">{{item.English.summary}}</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-item class="hidd" *ngIf="items == undefined || items.length == 0">
+            <h2>No artifact to show</h2>
+        </ion-item>
+
+  </ion-list>
+  <!-- <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div> -->
+
+  <ion-fab bottom right>
+      <button ion-fab (click)="showCheckbox()">
+        <span>Filter</span>
+        <!-- <ion-icon name="add"></ion-icon> -->
+      </button>
+
+      <!-- <ion-fab-list side="top">
+        <button ion-fab (click)="ccc()">
+          Categories
+          <ion-icon name="flaticon-people"></ion-icon>
+          <div class="label">By Categories</div>
+        </button>
+
+      </ion-fab-list> -->
+    </ion-fab>
+</ion-content>
